@@ -1,0 +1,2 @@
+class Measle < ApplicationRecord
+end

@@ -1,0 +1,57 @@
+<%= form_with(model: measle, local: true) do |form| %>
+  <% if measle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(measle.errors.count, "error") %> prohibited this measle from being saved:</h2>
+
+      <ul>
+      <% measle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :school_id %>
+    <%= form.text_field :school_id, id: :measle_school_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :district %>
+    <%= form.text_field :district, id: :measle_district %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facility %>
+    <%= form.text_field :facility, id: :measle_facility %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enrollment %>
+    <%= form.number_field :enrollment, id: :measle_enrollment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :school_compliance %>
+    <%= form.text_field :school_compliance, id: :measle_school_compliance %>
+  </div>
+
+  <div class="field">
+    <%= form.label :compliance_bin %>
+    <%= form.text_field :compliance_bin, id: :measle_compliance_bin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :protection %>
+    <%= form.text_field :protection, id: :measle_protection %>
+  </div>
+
+  <div class="field">
+    <%= form.label :protection_bin %>
+    <%= form.text_field :protection_bin, id: :measle_protection_bin %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

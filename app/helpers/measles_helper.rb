@@ -1,0 +1,2 @@
+module MeaslesHelper
+end

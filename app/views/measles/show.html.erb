@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>School:</strong>
+  <%= @measle.school_id %>
+</p>
+
+<p>
+  <strong>District:</strong>
+  <%= @measle.district %>
+</p>
+
+<p>
+  <strong>Facility:</strong>
+  <%= @measle.facility %>
+</p>
+
+<p>
+  <strong>Enrollment:</strong>
+  <%= @measle.enrollment %>
+</p>
+
+<p>
+  <strong>School compliance:</strong>
+  <%= @measle.school_compliance %>
+</p>
+
+<p>
+  <strong>Compliance bin:</strong>
+  <%= @measle.compliance_bin %>
+</p>
+
+<p>
+  <strong>Protection:</strong>
+  <%= @measle.protection %>
+</p>
+
+<p>
+  <strong>Protection bin:</strong>
+  <%= @measle.protection_bin %>
+</p>
+
+<%= link_to 'Edit', edit_measle_path(@measle) %> |
+<%= link_to 'Back', measles_path %>

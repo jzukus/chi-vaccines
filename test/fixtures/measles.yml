@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school_id: MyString
+  district: MyString
+  facility: MyString
+  enrollment: 1
+  school_compliance: 1.5
+  compliance_bin: MyString
+  protection: 1.5
+  protection_bin: MyString
+
+two:
+  school_id: MyString
+  district: MyString
+  facility: MyString
+  enrollment: 1
+  school_compliance: 1.5
+  compliance_bin: MyString
+  protection: 1.5
+  protection_bin: MyString

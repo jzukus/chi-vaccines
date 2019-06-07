@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Measles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>District</th>
+      <th>Facility</th>
+      <th>Enrollment</th>
+      <th>School compliance</th>
+      <th>Compliance bin</th>
+      <th>Protection</th>
+      <th>Protection bin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @measles.each do |measle| %>
+      <tr>
+        <td><%= measle.school_id %></td>
+        <td><%= measle.district %></td>
+        <td><%= measle.facility %></td>
+        <td><%= measle.enrollment %></td>
+        <td><%= measle.school_compliance %></td>
+        <td><%= measle.compliance_bin %></td>
+        <td><%= measle.protection %></td>
+        <td><%= measle.protection_bin %></td>
+        <td><%= link_to 'Show', measle %></td>
+        <td><%= link_to 'Edit', edit_measle_path(measle) %></td>
+        <td><%= link_to 'Destroy', measle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Measle', new_measle_path %>
