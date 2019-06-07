@@ -9,6 +9,13 @@ class StaticPagesController < ApplicationController
   end
 
   def immunization_levels
+    @measles = Measle.all
+    if params[:search].blank?
+      @results = []
+    else
+      @parameter = params[:search].downcase
+      @results = @measles.where("lower(facility) LIKE :search", search: "%#{@parameter}%")
+    end
   end
 
   def clinic_finder

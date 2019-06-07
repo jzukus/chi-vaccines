@@ -1,5 +1,66 @@
 <% provide(:title, "Immunization Levels") %>
 <h1>Measles Immunization Levels across CPS</h1>
 <p>
-  Insert data visualizations here.
+  The state and Chicago Public Schools (CPS) require <b>90%</b> of all students to be
+  compliant with immunization rules. This allows for religious and
+  medical exemptions though, so the actual protection levels can be even lower.
+  Furthermore, students are still allowed to go to school without vaccinations.
 </p>
+<p>
+  This contrasts with the CDC's
+  <a href="http://www.cdc.gov/mmwr/preview/mmwrhtml/mm6134a4.htm">recommendation
+  </a> that <b>93-95%</b> of people should get vaccinated for effective group
+  immunization. Furthermore, due to the highly contagious nature of measles,
+  <a href="https://www.wbez.org/shows/wbez-news/schools-across-the-chicago-region-enroll-kids-without-measles-vaccination/a0d4661a-1c0a-47e2-8de2-9754b69411d0">
+  experts</a> believe at least <b>98%</b> should be vaccinated against it.
+</p>
+<p>
+  Unfortunately, <b>1/3 of all Illinois schools have less than a 98%
+  immunization level against measles</b>, according to
+  <a href="https://www.isbe.net/Documents/Immunization_17-18.xlsx">data</a>
+  collected for the 2017-2018 school year by the Illinois State Board of
+  Education. The pie chart below shows the distribution of school measles
+  protection levels across Illinois.
+</p>
+<%= pie_chart @measles.group(:protection_bin).count,
+colors: ['#007700', '#FFBF00', '#2fb62f', '#D2222D'],
+title: "Illinois School Measles Protection Percentage, 2017-2018" %>
+<br>
+<p>
+  Search for your child's CPS school here to find out its measles immunization
+  level:
+</p>
+<!-- search feature from
+  https://melvinchng.github.io/rails/SearchFeature.html#41-create-a-page-for-search
+-->
+<%= form_tag(immunization_levels_path, :method => "get") do %>
+<div class="input-group" style="width:500px;">
+  <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+  <div class="input-group-btn">
+    <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search', :name => nil %>
+  </div>
+</div>
+<% end %>
+<br>
+<% unless params[:search].blank? %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">District</th>
+      <th scope="col">School</th>
+      <th scope="col">Compliance %</th>
+      <th scope="col">Protection %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @results.each do |result| %>
+    <tr>
+      <td><%= result.district %><br></td>
+      <td><%= result.facility %><br></td>
+      <td><%= result.school_compliance %><br></td>
+      <td><%= result.protection %><br></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
