@@ -38,6 +38,15 @@ textarea {
   background-size: cover;
 }
 
+li {
+	margin: 0;
+	padding: 12px 0 12px 42px;
+	list-style: none;
+	background-image: url("/assets/syringe.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 30px;
+}
 
 .buttonHolder { text-align: center; }
 
