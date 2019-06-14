@@ -22,8 +22,9 @@
   Education. The pie chart below shows the distribution of school measles
   protection levels across Illinois.
 </p>
-<%= pie_chart @measles.group(:protection_bin).count,
-colors: ['#007700', '#FFBF00', '#D2222D', '#2fb62f'],
+<!-- if ascending order wanted, use .order(:protection) -->
+<%= pie_chart @measles.order(protection: :desc).group(:protection_bin).count,
+colors: ['#007700', '#2fb62f', '#FFBF00', '#D2222D'],
 title: "Illinois School Measles Protection Percentage, 2017-2018" %>
 <br>
 <p>
