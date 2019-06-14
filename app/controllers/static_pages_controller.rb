@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def immunization_levels
-    @measles = Measle.all
+    @measles = Measle.all.order(:protection).reverse_order
     if params[:search].blank?
       @results = []
     else
